@@ -54,10 +54,13 @@ class TestOstoskori(unittest.TestCase):
         if ostokset[0].lukumaara() != 1:
             oikein = False
         self.assertEqual(oikein, True)
-    def test_kahden_erituoteen_lisaamisen_jalkeen_ostoskori_sisaltaa_2_ostosta(self):
+    def test_kahden_eri_tuoteen_lisaamisen_jalkeen_ostoskori_sisaltaa_2_ostosta(self):
         self.kori.lisaa_tuote(self.tuote)
         self.kori.lisaa_tuote(self.tuote2)
         ostokset = self.kori.ostokset()
         self.assertEqual(len(ostokset), 2)
-
-     
+    def test_kahden_saman_tuotteen_lisaamisen_jalkeen_ostoskori_sisaltaa_1_ostoksen(self):
+        self.kori.lisaa_tuote(self.tuote)
+        self.kori.lisaa_tuote(self.tuote)
+        ostokset = self.kori.ostokset()
+        self.assertEqual(len(ostokset), 1)
