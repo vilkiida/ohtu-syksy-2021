@@ -76,3 +76,4 @@ class Kayttoliittyma:
 
         self._syote_kentta.delete(0, constants.END)
         self._tulos_var.set(self._sovelluslogiikka.tulos)
+ 
